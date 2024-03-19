@@ -22,6 +22,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OVRHand : MonoBehaviour,
     OVRSkeleton.IOVRSkeletonDataProvider,
@@ -77,6 +78,8 @@ public class OVRHand : MonoBehaviour,
     public TrackingConfidence HandConfidence { get; private set; }
     public bool IsDominantHand { get; private set; }
 
+    public Text debugText; // Reference to your text component
+
     private void Awake()
     {
         _pointerPoseGO = new GameObject();
@@ -92,6 +95,14 @@ public class OVRHand : MonoBehaviour,
     private void Update()
     {
         GetHandState(OVRPlugin.Step.Render);
+
+        // Update the debug text with the current hand tracking status
+        if (debugText != null)
+        {
+            debugText.text = "Hand Tracked: " + IsTracked + "\n" +
+                             "Hand Confidence: " + HandConfidence + "\n" +
+                             "Is System Gesture In Progress: " + IsSystemGestureInProgress;
+        }
     }
 
     private void FixedUpdate()

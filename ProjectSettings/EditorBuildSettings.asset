@@ -4,5 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
-  m_configObjects: {}
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Bachelor Project/MultimodalHandsAndControllers.unity
+    guid: e1cdd026d99cb4147b15306c1d4bc05b
+  m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 618c61945b219e544ab7f950624f7067, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 6e1148795d5515540b6a68aca3a4d105, type: 2}
