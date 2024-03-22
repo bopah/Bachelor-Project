@@ -99,9 +99,7 @@ public class OVRHand : MonoBehaviour,
         // Update the debug text with the current hand tracking status
         if (debugText != null)
         {
-            debugText.text = "Hand Tracked: " + IsTracked + "\n" +
-                             "Hand Confidence: " + HandConfidence + "\n" +
-                             "Is System Gesture In Progress: " + IsSystemGestureInProgress;
+            debugText.text = "PointerPose.localPosition" + PointerPose.localPosition + "\n";
         }
     }
 
@@ -128,7 +126,6 @@ public class OVRHand : MonoBehaviour,
 
             IsDataValid = true;
             IsDataHighConfidence = IsTracked && HandConfidence == TrackingConfidence.High;
-
             // Hands cannot be doing pointer poses or system gestures when they are holding controllers
             //OVRInput.Hand inputHandType = (HandType == Hand.)
             OVRInput.ControllerInHandState controllerInHandState =
