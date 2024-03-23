@@ -15187,6 +15187,54 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1162958723
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1162958725}
+  - component: {fileID: 1162958724}
+  m_Layer: 0
+  m_Name: HandMoveScaler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1162958724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162958723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047433f86c3b7b6459a65241a1a95e83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handPrefabTransform: {fileID: 0}
+  rightHandAnchor: {fileID: 0}
+  warpOrigin: {x: 0, y: 0, z: 0}
+  buttonActivated: 0
+--- !u!4 &1162958725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162958723}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.063893065, y: 0.81581926, z: 0.54522395}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1164035746
 GameObject:
   m_ObjectHideFlags: 0
@@ -16145,6 +16193,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttons:
   - {fileID: 1744137639}
+  rightHandAnchor: {fileID: 0}
+  handMovementScaler: {fileID: 1162958724}
   trialYesNoText: {fileID: 236570674}
   trialCanvasText: {fileID: 9365039}
   realCanvasText: {fileID: 127920801}
@@ -71497,3 +71547,4 @@ SceneRoots:
   - {fileID: 1663583014}
   - {fileID: 559806237}
   - {fileID: 1288374705}
+  - {fileID: 1162958725}

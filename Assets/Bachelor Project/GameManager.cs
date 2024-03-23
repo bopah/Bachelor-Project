@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     //public GameObject canvas;
     //public Text canvasText;
 
+    public Transform rightHandAnchor; // position of my real hand
+    public HandMovementScaler handMovementScaler;
+
     private bool trial = true;
     private int trialNumber = 1;
 
@@ -87,6 +90,7 @@ public class GameManager : MonoBehaviour
     {
         //int randomNumber = Random.Range(0, 3); // 3 is exclusive
         buttons[0].SetActive(true);
+        handMovementScaler.ActivateScaling(rightHandAnchor.position, 2f); // Setting warp origin + activating scaling
         if (trial == true)
         {
             trialCanvasText.text = $"[This is a trial run ({trialNumber}/9) \n]" +
