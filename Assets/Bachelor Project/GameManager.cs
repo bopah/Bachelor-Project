@@ -49,16 +49,19 @@ public class GameManager : MonoBehaviour
         if (step1 == true) 
         {
             StepOneTrue();
+            step1 = false;
         }
         // Press on button
         else if (step2 == true) 
         {
             StepTwoTrue();
+            step2 = false;
         }
         // Press yes or no
         else if (step3 == true) 
         {
             StepThreeTrue();
+            step3 = false;
         }
     }
 
@@ -90,7 +93,7 @@ public class GameManager : MonoBehaviour
     {
         //int randomNumber = Random.Range(0, 3); // 3 is exclusive
         buttons[0].SetActive(true);
-        handMovementScaler.ActivateScaling(rightHandAnchor.position, 2f); // Setting warp origin + activating scaling
+        handMovementScaler.ActivateScaling(rightHandAnchor.position, 3f); // Setting warp origin + activating scaling
         if (trial == true)
         {
             trialCanvasText.text = $"[This is a trial run ({trialNumber}/9) \n]" +

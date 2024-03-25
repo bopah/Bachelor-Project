@@ -18,6 +18,7 @@
  * limitations under the License.
  */
 
+using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Serialization;
@@ -93,7 +94,7 @@ namespace Oculus.Interaction
         }
 
         private IInteractableView InteractableView;
-        private Material _material;
+        public Material _material;
 
         protected bool _started = false;
 
@@ -141,22 +142,26 @@ namespace Oculus.Interaction
             _normalColor = color;
             UpdateVisual();
         }
-
+        public TextMeshProUGUI debugText; // Assign this in the inspector
         private void UpdateVisual()
         {
             switch (InteractableView.State)
             {
                 case InteractableState.Normal:
                     _material.color = _normalColor;
+                    debugText.text += "Normal \n";
                     break;
                 case InteractableState.Hover:
                     _material.color = _hoverColor;
+                    debugText.text += "Hover \n";
                     break;
                 case InteractableState.Select:
                     _material.color = _selectColor;
+                    debugText.text += "Select \n";
                     break;
                 case InteractableState.Disabled:
                     _material.color = _disabledColor;
+                    debugText.text += "Disabled \n";
                     break;
             }
         }

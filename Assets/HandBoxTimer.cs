@@ -13,7 +13,7 @@ public class HandBoxTimer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //debugText.text += "Collider other.name: " + other.name;
+        debugText.text += "Collider other.name: " + other.name;
         if (other.name == "Hand_Middle2_CapsuleCollider") // Make sure your hand or controller has the tag "Hand"
         {
             isHandInside = true;

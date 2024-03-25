@@ -1475,7 +1475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4453513310108136, guid: 835e735ca71bf78459fb2cababd74112, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4453513310108136, guid: 835e735ca71bf78459fb2cababd74112, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2440,10 +2440,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047433f86c3b7b6459a65241a1a95e83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handPrefabTransform: {fileID: 500659403}
-  rightHandAnchor: {fileID: 438170768}
-  movementThreshold: 0.5
-  debugText: {fileID: 1695585530}
+  vrHand: {fileID: 500659403}
+  realHand: {fileID: 438170768}
+  realHandText: {fileID: 0}
+  vrHandText: {fileID: 0}
+  misc: {fileID: 0}
 --- !u!1 &1051154882
 GameObject:
   m_ObjectHideFlags: 0
@@ -3498,8 +3499,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttons: []
-  canvas: {fileID: 0}
-  canvasText: {fileID: 0}
+  rightHandAnchor: {fileID: 0}
+  handMovementScaler: {fileID: 0}
+  trialYesNoText: {fileID: 0}
+  trialCanvasText: {fileID: 0}
+  realCanvasText: {fileID: 0}
+  gameObjectManager: {fileID: 0}
 --- !u!1001 &1432556347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3514,7 +3519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1870938896605422, guid: 835e735ca71bf78459fb2cababd74112, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4453513310108136, guid: 835e735ca71bf78459fb2cababd74112, type: 3}
       propertyPath: m_RootOrder

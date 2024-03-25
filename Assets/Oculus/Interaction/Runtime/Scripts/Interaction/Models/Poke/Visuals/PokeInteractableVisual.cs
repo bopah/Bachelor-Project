@@ -20,6 +20,7 @@
 
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace Oculus.Interaction
@@ -42,6 +43,8 @@ namespace Oculus.Interaction
 
 
         protected bool _started = false;
+
+        public TextMeshProUGUI debugText; // Assign this in the inspector
 
         protected virtual void Start()
         {
@@ -125,15 +128,15 @@ namespace Oculus.Interaction
                 }
             }
         }
-
+        public TextMeshProUGUI text; // Assign this in the inspector
         private void UpdateComponentPosition()
         {
             // To create a pressy button visual, we check each near poke interactor's
             // depth against the base of the button and use the most pressed-in
             // value as our depth. We cap this at the button base as the stopping
             // point. If no interactors exist, we sit the button at the original offset
-
-            float closestDistance = _maxOffsetAlongNormal;
+            /*
+            float closestDistance = _maxOffsetAlongNormal; // 0.027f ??
             foreach (PokeInteractor pokeInteractor in _pokeInteractors)
             {
                 // Scalar project the poke interactor's position onto the button base's normal vector
@@ -152,8 +155,22 @@ namespace Oculus.Interaction
             // Position our transformation at our button base plus
             // the most pressed in distance along the normal plus
             // the original planar offset of the button from the button base
+            text.text = "closestDistance: " + closestDistance;
             transform.position = _buttonBaseTransform.position +
-                                 _buttonBaseTransform.forward * (-1f * closestDistance) +
+                                 _buttonBaseTransform.forward * (-1f * 0) + // Multiply med 0 for at trykke knappen helt ned, eller 0.027 for at få den helt op?
+                                 _buttonBaseTransform.right * _planarOffset.x +
+                                 _buttonBaseTransform.up * _planarOffset.y;
+            */
+        }
+        public void UpdateButtonAnimation(bool pressed)
+        {
+            float multVal = 0.027f;
+            if (pressed)
+            {
+                multVal = 0f;
+            }
+            transform.position = _buttonBaseTransform.position +
+                                 _buttonBaseTransform.forward * (-1f * multVal) + // Multiply med 0 for at trykke knappen helt ned, eller 0.027 for at få den helt op?
                                  _buttonBaseTransform.right * _planarOffset.x +
                                  _buttonBaseTransform.up * _planarOffset.y;
         }
