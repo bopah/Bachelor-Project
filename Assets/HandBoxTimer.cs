@@ -14,7 +14,7 @@ public class HandBoxTimer : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         debugText.text += "Collider other.name: " + other.name;
-        if (other.name == "Hand_Middle2_CapsuleCollider") // Make sure your hand or controller has the tag "Hand"
+        if (other.name == "Hand_Middle1_CapsuleCollider" || other.name == "Hand_Middle2_CapsuleCollider" || other.name == "Hand_Middle3_CapsuleCollider") // Make sure your hand or controller has the tag "Hand"
         {
             isHandInside = true;
             timeHandInside = 0f;
