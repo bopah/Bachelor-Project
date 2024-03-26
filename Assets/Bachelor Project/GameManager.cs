@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     public Transform rightHandAnchor; // position of my real hand
     public HandMovementScaler handMovementScaler;
 
+    public GameObject[] leftHandGameObject;
+    public GameObject rightHandGameObject;
+
     private bool trial = true;
     private int trialNumber = 1;
 
@@ -80,6 +83,9 @@ public class GameManager : MonoBehaviour
             realCanvasText.text = "Hold your hand in the white/transparent box for 1 second.";
             gameObjectManager.ActivateTransparentCube();
         }
+        rightHandGameObject.SetActive(true);
+        leftHandGameObject[0].SetActive(false);
+        leftHandGameObject[1].SetActive(false);
 
     }
     public void StepOneFalse()
@@ -119,6 +125,7 @@ public class GameManager : MonoBehaviour
 
     public void StepThreeTrue()
     {
+
         if (trial == true)
         {
             gameObjectManager.ActivateTrialYesNo();
@@ -130,7 +137,12 @@ public class GameManager : MonoBehaviour
         {
             gameObjectManager.ActivateRealYesNo();
         }
-            
+        rightHandGameObject.SetActive(false);
+        leftHandGameObject[0].SetActive(true);
+        leftHandGameObject[1].SetActive(true);
+
+
+
     }
     public void StepThreeFalse()
     {
