@@ -38,9 +38,9 @@ public class HandMovementScaler : MonoBehaviour
             vrHand.position = finalWarped;
         }
 
-        //realHandText.text = "Real Hand: " + realHand.position;
-        //vrHandText.text = "warpOrigin: " + warpOrigin + "\n";
-        //vrHandText.text += "VR hand: " + vrHand.position;
+        realHandText.text = "Real Hand: " + realHand.position;
+        vrHandText.text = "warpOrigin: " + warpOrigin + "\n";
+        vrHandText.text += "VR hand: " + vrHand.position;
 
 
     }

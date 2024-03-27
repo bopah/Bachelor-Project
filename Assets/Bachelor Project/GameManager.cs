@@ -36,14 +36,7 @@ public class GameManager : MonoBehaviour
     private bool step2 = false;
     private bool step3 = false;
 
-
-
-
-    void Start()
-    {
-        //int randomNumber = Random.Range(0, 3); // 3 is exclusive
-
-    }
+    public CSVWriter csvWriter;
 
 
     void Update()
@@ -99,7 +92,7 @@ public class GameManager : MonoBehaviour
     {
         //int randomNumber = Random.Range(0, 3); // 3 is exclusive
         buttons[0].SetActive(true);
-        handMovementScaler.ActivateScaling(rightHandAnchor.position, 3f); // Setting warp origin + activating scaling
+        handMovementScaler.ActivateScaling(rightHandAnchor.position, 2f); // Setting warp origin + activating scaling
         if (trial == true)
         {
             trialCanvasText.text = $"[This is a trial run ({trialNumber}/9) \n]" +
@@ -161,5 +154,14 @@ public class GameManager : MonoBehaviour
             gameObjectManager.DeactivateRealYesNo();
         }
         step1 = true;
+    }
+
+    public void ActivateRecordingYes()
+    {
+        csvWriter.WriteToCSV("targetMid", 2.0f, true);
+    }
+    public void ActivateRecordingNo()
+    {
+        csvWriter.WriteToCSV("targetMid", 2.0f, false);
     }
 }

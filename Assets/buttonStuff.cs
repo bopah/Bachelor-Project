@@ -13,6 +13,7 @@ public class ButtonStuff : MonoBehaviour
     public GameManager gameManager;
     private bool buttonPressed = false; // So that a player cannot press a button multiple times when pressing all the way down
 
+
     void OnTriggerEnter(Collider other)
     {
         if (buttonPressed == false)
