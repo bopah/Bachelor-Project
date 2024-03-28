@@ -6,12 +6,16 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    private List<float> scales = new List<float> { 1.0f, 1.1f, 1.25f, 1.4f, 1.55f, 1.7f, 1.85f, 2.0f, 0.909f, 0.8f, 0.714f, 0.645f, 0.588f, 0.54f, 0.5f};
+    //private List<float> scales = new List<float> { 1.0f, 1.1f, 1.25f, 1.4f, 1.55f, 1.7f, 1.85f, 2.0f, 0.909f, 0.8f, 0.714f, 0.645f, 0.588f, 0.54f, 0.5f};
     
     public GameObject[] buttons; // Assign all buttons in inspector
-    private List<float> buttonLeftList = new List<float> { };
-    private List<float> buttonMidList = new List<float> { };
-    private List<float> buttonRightList = new List<float> { };
+    private List<float> buttonLeftList = new List<float> { 1.0f, 1.1f, 1.25f, 1.4f, 1.55f, 1.7f, 1.85f, 2.0f, 0.909f, 0.8f, 0.714f, 0.645f, 0.588f, 0.54f, 0.5f };
+    private List<float> buttonMidList = new List<float> { 1.0f, 1.1f, 1.25f, 1.4f, 1.55f, 1.7f, 1.85f, 2.0f, 0.909f, 0.8f, 0.714f, 0.645f, 0.588f, 0.54f, 0.5f };
+    private List<float> buttonRightList = new List<float> { 1.0f, 1.1f, 1.25f, 1.4f, 1.55f, 1.7f, 1.85f, 2.0f, 0.909f, 0.8f, 0.714f, 0.645f, 0.588f, 0.54f, 0.5f };
+    
+    private float scaleValue = 1f;
+    private int randomScale = 0;
+    private string targetButton = "targetMid";
 
     //public GameObject canvas;
     //public Text canvasText;
@@ -37,6 +41,9 @@ public class GameManager : MonoBehaviour
     private bool step3 = false;
 
     public CSVWriter csvWriter;
+
+
+    public TextMeshProUGUI misc; // Assign this in the inspector
 
 
     void Update()
@@ -90,9 +97,85 @@ public class GameManager : MonoBehaviour
 
     public void StepTwoTrue()
     {
-        //int randomNumber = Random.Range(0, 3); // 3 is exclusive
-        buttons[0].SetActive(true);
-        handMovementScaler.ActivateScaling(rightHandAnchor.position, 2f); // Setting warp origin + activating scaling
+        // Finding which random button to activate.
+        // If the button target list has a count of 15 values, then the button has tried all scale values and we stop activating this button.
+        int buttonTarget = Random.Range(0, 3); // 3 is exclusive
+        int buttonTargetListLength = 0;
+        //float scaleValue = 1f;
+        //int randomScale = 0;
+        while (true)
+        {
+            // If all the button target lists are full, then the game is over!
+            if (buttonLeftList.Count == 15 && buttonMidList.Count == 15 && buttonRightList.Count == 15)
+            {
+                // GameOver Screen!
+                break;
+            }
+
+            // If one of the lists is not full, then loop break.
+            if (buttonTarget == 0 && buttonLeftList.Count != 15)
+            {
+                misc.text = "buttonLeftList: " + buttonLeftList + "\n";
+                buttonTargetListLength = buttonLeftList.Count; // Updating the length of the button target list
+                misc.text += "buttonTargetListLength: " + buttonLeftList.Count + "\n";
+                // Finding an unused scale of target button list
+                randomScale = Random.Range(0, buttonTargetListLength);
+                misc.text += "randomScale: " + randomScale + "\n";
+                scaleValue = buttonLeftList[randomScale];
+                misc.text += "scaleValue: " + scaleValue + "\n";
+                buttonLeftList.RemoveAt(randomScale); // Removing the scale value from the list.
+                misc.text += "buttonLeftList: " + buttonLeftList + "\n";
+
+                targetButton = "targetLeftButton";
+                misc.text += "targetButton name: " + targetButton + "\n";
+                break;
+            }
+            else if (buttonTarget == 1 && buttonMidList.Count != 15)
+            {
+                misc.text = "buttonMIDtList: " + buttonMidList + "\n";
+                buttonTargetListLength = buttonMidList.Count; // Updating the length of the button target list
+                misc.text += "buttonTargetListLength: " + buttonMidList.Count + "\n";
+                // Finding an unused scale of target button list
+                randomScale = Random.Range(0, buttonTargetListLength);
+                misc.text += "randomScale: " + randomScale + "\n";
+                scaleValue = buttonMidList[randomScale];
+                misc.text += "scaleValue: " + scaleValue + "\n";
+                buttonMidList.RemoveAt(randomScale); // Removing the scale value from the list.
+                misc.text += "buttonMidList: " + buttonMidList + "\n";
+
+                targetButton = "targetMidButton";
+                misc.text += "targetButton name: " + targetButton + "\n";
+                break;
+            }
+            else if (buttonTarget == 2 && buttonRightList.Count != 15)
+            {
+                misc.text = "buttonRightList: " + buttonRightList + "\n";
+                buttonTargetListLength = buttonRightList.Count; // Updating the length of the button target list
+                misc.text += "buttonTargetListLength: " + buttonRightList.Count + "\n";
+                // Finding an unused scale of target button list
+                randomScale = Random.Range(0, buttonTargetListLength);
+                misc.text += "randomScale: " + randomScale + "\n";
+                scaleValue = buttonRightList[randomScale];
+                misc.text += "scaleValue: " + scaleValue + "\n";
+                buttonRightList.RemoveAt(randomScale); // Removing the scale value from the list.
+                misc.text += "buttonRightList: " + buttonRightList + "\n";
+
+                targetButton = "targetRightButton";
+                misc.text += "targetButton name: " + targetButton + "\n";
+                break;
+            }
+            else
+            {
+                buttonTarget = Random.Range(0, 3);
+                continue;
+            }
+
+        }
+        
+        buttons[buttonTarget].SetActive(true);
+        
+        handMovementScaler.ActivateScaling(rightHandAnchor.position, scaleValue); // Setting warp origin + activating scaling
+        
         if (trial == true)
         {
             trialCanvasText.text = $"[This is a trial run ({trialNumber}/9) \n]" +
@@ -104,6 +187,7 @@ public class GameManager : MonoBehaviour
     public void StepTwoFalse()
     {
         step2 = false;
+        handMovementScaler.DeActivateScaling();
         buttons[0].SetActive(false);
         if (trial == true)
         {
@@ -158,10 +242,10 @@ public class GameManager : MonoBehaviour
 
     public void ActivateRecordingYes()
     {
-        csvWriter.WriteToCSV("targetMid", 2.0f, true);
+        csvWriter.WriteToCSV(targetButton, scaleValue, true);
     }
     public void ActivateRecordingNo()
     {
-        csvWriter.WriteToCSV("targetMid", 2.0f, false);
+        csvWriter.WriteToCSV(targetButton, scaleValue, false);
     }
 }
