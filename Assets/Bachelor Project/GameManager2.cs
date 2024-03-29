@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManager2 : MonoBehaviour
 {
     //private List<float> scales = new List<float> { 1.0f, 1.1f, 1.25f, 1.4f, 1.55f, 1.7f, 1.85f, 2.0f, 0.909f, 0.8f, 0.714f, 0.645f, 0.588f, 0.54f, 0.5f};
     //private List<float> scales = new List<float> { 0.75f, 0.80f, 0.85f, 0.90f, 0.95f, 1.0f, 1.14f, 1.28f, 1.42f, 1.56f, 1.7f};
@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     private List<float> buttonLeftList = new List<float> { 0.75f, 0.80f, 0.85f, 0.90f, 0.95f, 1.0f, 1.14f, 1.28f, 1.42f, 1.56f, 1.7f };
     private List<float> buttonMidList = new List<float> { 0.75f, 0.80f, 0.85f, 0.90f, 0.95f, 1.0f, 1.14f, 1.28f, 1.42f, 1.56f, 1.7f };
     private List<float> buttonRightList = new List<float> { 0.75f, 0.80f, 0.85f, 0.90f, 0.95f, 1.0f, 1.14f, 1.28f, 1.42f, 1.56f, 1.7f };
-    
+
     private float scaleValue = 1f;
     private int randomScale = 0;
     private string targetButton = "targetMid";
@@ -54,19 +54,19 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         // Place hand inside transparent box
-        if (step1 == true) 
+        if (step1 == true)
         {
             StepOneTrue();
             step1 = false;
         }
         // Press on button
-        else if (step2 == true) 
+        else if (step2 == true)
         {
             StepTwoTrue();
             step2 = false;
         }
         // Press yes or no
-        else if (step3 == true) 
+        else if (step3 == true)
         {
             StepThreeTrue();
             step3 = false;
@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
         // But when its a trial, then each button must activate 3 times each before trial ends
         buttonTarget = Random.Range(0, 3); // 3 is exclusive
         int buttonTargetListLength = 0;
-        
+
         // Infinite loop until we hit a valid button target (list is not empty)
         while (true)
         {
@@ -118,7 +118,7 @@ public class GameManager : MonoBehaviour
                 {
 
                     misc.text = "leftTrial.count, midTrial.count, rightTrial.count: " + leftButtonTrial + "," + midButtonTrial + "," + rightButtonTrial + "\n";
-                    
+
                     if (leftButtonTrial == 0)
                     {
                         scaleValue = 0.75f;
@@ -131,10 +131,10 @@ public class GameManager : MonoBehaviour
                     {
                         scaleValue = 1.7f;
                     }
-                      
+
                     misc.text += "scaleValue: " + scaleValue + "\n";
-                    
-                    
+
+
                     targetButton = "Trial-targetLeftButton";
                     misc.text += "targetButton name: " + targetButton + "\n";
                     leftButtonTrial++;
@@ -258,14 +258,14 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-        
 
-        
-        
+
+
+
         buttons[buttonTarget].SetActive(true);
-        
+
         handMovementScaler.ActivateScaling(rightHandAnchor.position, scaleValue); // Setting warp origin + activating scaling
-        
+
         if (trial == true)
         {
             trialCanvasText.text = $"[This is a trial run ({trialNumber}/9)] \n" +
@@ -287,7 +287,7 @@ public class GameManager : MonoBehaviour
             gameObjectManager.DeactivateRealCanvas();
 
         step3 = true;
-        
+
     }
 
     public void StepThreeTrue()
@@ -327,7 +327,7 @@ public class GameManager : MonoBehaviour
         {
             gameObjectManager.DeactivateRealYesNo();
         }
-        
+
         step1 = true;
         // If all the button target lists are empty, then the game is over!
         if (buttonLeftList.Count == 0 && buttonMidList.Count == 0 && buttonRightList.Count == 0)

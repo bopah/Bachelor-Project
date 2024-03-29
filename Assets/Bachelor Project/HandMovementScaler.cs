@@ -56,5 +56,6 @@ public class HandMovementScaler : MonoBehaviour
     public void DeActivateScaling()
     {
         buttonActivated = false;
+        vrHand.position = realHand.position;
     }
 }
