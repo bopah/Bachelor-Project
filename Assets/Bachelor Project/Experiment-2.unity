@@ -7374,8 +7374,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 1288374706}
+        m_TargetAssemblyTypeName: GameManager2, Assembly-CSharp
         m_MethodName: StepThreeFalse
         m_Mode: 1
         m_Arguments:
@@ -7386,8 +7386,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 1288374706}
+        m_TargetAssemblyTypeName: GameManager2, Assembly-CSharp
         m_MethodName: ActivateRecordingNo
         m_Mode: 1
         m_Arguments:
@@ -10135,8 +10135,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 1288374706}
+        m_TargetAssemblyTypeName: GameManager2, Assembly-CSharp
         m_MethodName: StepThreeFalse
         m_Mode: 1
         m_Arguments:
@@ -10147,8 +10147,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 1288374706}
+        m_TargetAssemblyTypeName: GameManager2, Assembly-CSharp
         m_MethodName: ActivateRecordingYes
         m_Mode: 1
         m_Arguments:
@@ -11386,8 +11386,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 1288374706}
+        m_TargetAssemblyTypeName: GameManager2, Assembly-CSharp
         m_MethodName: StepThreeFalse
         m_Mode: 1
         m_Arguments:
@@ -11398,8 +11398,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 1288374706}
+        m_TargetAssemblyTypeName: GameManager2, Assembly-CSharp
         m_MethodName: ActivateRecordingYes
         m_Mode: 1
         m_Arguments:
@@ -19517,7 +19517,7 @@ GameObject:
   - component: {fileID: 1288374705}
   - component: {fileID: 1288374706}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: GameManager2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23980,7 +23980,7 @@ GameObject:
   - component: {fileID: 1663583017}
   - component: {fileID: 1663583016}
   - component: {fileID: 1663583015}
-  - component: {fileID: 1663583018}
+  - component: {fileID: 1663583019}
   m_Layer: 0
   m_Name: Transparent Cube
   m_TagString: Untagged
@@ -24074,7 +24074,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1663583013}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1663583018
+--- !u!114 &1663583019
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -24083,11 +24083,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1663583013}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34477957672dfe2469cf0925eafcaaeb, type: 3}
+  m_Script: {fileID: 11500000, guid: b06259f22f0667845b0d9f66154a397c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   debugText: {fileID: 2859147190452409465}
-  gameManager: {fileID: 0}
+  gameManager2: {fileID: 1288374706}
 --- !u!1 &1668148335
 GameObject:
   m_ObjectHideFlags: 0
@@ -27399,8 +27399,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 1288374706}
+        m_TargetAssemblyTypeName: GameManager2, Assembly-CSharp
         m_MethodName: StepThreeFalse
         m_Mode: 1
         m_Arguments:
@@ -27411,8 +27411,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 1288374706}
+        m_TargetAssemblyTypeName: GameManager2, Assembly-CSharp
         m_MethodName: ActivateRecordingNo
         m_Mode: 1
         m_Arguments:
