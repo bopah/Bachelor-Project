@@ -84,7 +84,6 @@ public class GameManager2 : MonoBehaviour
     public TextMeshProUGUI midButtonTargetMathEquationText; // Assign this in the inspector
     public TextMeshProUGUI rightButtonTargetMathEquationText; // Assign this in the inspector
 
-
     private float scaleValue = 1f;
     private int randomScale = 0;
     private string targetButton = "targetMid";
@@ -173,10 +172,22 @@ public class GameManager2 : MonoBehaviour
 
     public void StepTwoTrue()
     {
-        // Finding which random button to activate.
-        // If the button target list has a count of 0, then the button has tried all scale values and we stop activating this button.
-        // But when its a trial, then each button must activate 3 times each before trial ends
-        buttonTarget = Random.Range(0, 3); // 3 is exclusive
+
+        /*
+        if (trial == true)
+        {
+            trialCanvasText.text = $"[This is a trial run ({trialNumber}/9)] \n" +
+                                    "Press the button with the correct answer. \n" +
+                                    $"{leftButtonTargetAnswerTrial[0][0]}";
+        }
+        else
+            realCanvasText.text = "Press the button with the correct answer.";
+        */
+
+            // Finding which random button to activate.
+            // If the button target list has a count of 0, then the button has tried all scale values and we stop activating this button.
+            // But when its a trial, then each button must activate 3 times each before trial ends
+            buttonTarget = Random.Range(0, 3); // 3 is exclusive
         int buttonTargetListLength = 0;
 
         // Infinite loop until we hit a valid button target (list is not empty)
@@ -193,14 +204,35 @@ public class GameManager2 : MonoBehaviour
                     if (leftButtonTrial == 0)
                     {
                         scaleValue = 0.75f;
+                        
+                        trialCanvasText.text = $"[This is a trial run ({trialNumber}/9)] \n" +
+                                                "Press the button with the correct answer: \n" +
+                                               $"{leftButtonTargetAnswerTrial[0][0]}"; 
+                        leftButtonTargetMathEquationText.text = leftButtonTargetAnswerTrial[0][1];
+                        midButtonTargetMathEquationText.text = leftButtonTargetAnswerTrial[0][2];
+                        rightButtonTargetMathEquationText.text = leftButtonTargetAnswerTrial[0][3];
                     }
                     else if (leftButtonTrial == 1)
                     {
                         scaleValue = 1f;
+
+                        trialCanvasText.text = $"[This is a trial run ({trialNumber}/9)] \n" +
+                                                "Press the button with the correct answer: \n" +
+                                               $"{leftButtonTargetAnswerTrial[1][0]}";
+                        leftButtonTargetMathEquationText.text = leftButtonTargetAnswerTrial[1][1];
+                        midButtonTargetMathEquationText.text = leftButtonTargetAnswerTrial[1][2];
+                        rightButtonTargetMathEquationText.text = leftButtonTargetAnswerTrial[1][3];
                     }
                     else if (leftButtonTrial == 2)
                     {
                         scaleValue = 1.7f;
+
+                        trialCanvasText.text = $"[This is a trial run ({trialNumber}/9)] \n" +
+                                                "Press the button with the correct answer: \n" +
+                                               $"{leftButtonTargetAnswerTrial[2][0]}";
+                        leftButtonTargetMathEquationText.text = leftButtonTargetAnswerTrial[2][1];
+                        midButtonTargetMathEquationText.text = leftButtonTargetAnswerTrial[2][2];
+                        rightButtonTargetMathEquationText.text = leftButtonTargetAnswerTrial[2][3];
                     }
 
                     misc.text += "scaleValue: " + scaleValue + "\n";
@@ -218,14 +250,35 @@ public class GameManager2 : MonoBehaviour
                     if (midButtonTrial == 0)
                     {
                         scaleValue = 0.75f;
+
+                        trialCanvasText.text = $"[This is a trial run ({trialNumber}/9)] \n" +
+                                                "Press the button with the correct answer: \n" +
+                                               $"{midButtonTargetAnswerTrial[0][0]}";
+                        leftButtonTargetMathEquationText.text = midButtonTargetAnswerTrial[0][1];
+                        midButtonTargetMathEquationText.text = midButtonTargetAnswerTrial[0][2];
+                        rightButtonTargetMathEquationText.text = midButtonTargetAnswerTrial[0][3];
                     }
                     else if (midButtonTrial == 1)
                     {
                         scaleValue = 1f;
+
+                        trialCanvasText.text = $"[This is a trial run ({trialNumber}/9)] \n" +
+                                                "Press the button with the correct answer: \n" +
+                                               $"{midButtonTargetAnswerTrial[1][0]}";
+                        leftButtonTargetMathEquationText.text = midButtonTargetAnswerTrial[1][1];
+                        midButtonTargetMathEquationText.text = midButtonTargetAnswerTrial[1][2];
+                        rightButtonTargetMathEquationText.text = midButtonTargetAnswerTrial[1][3];
                     }
                     else if (midButtonTrial == 2)
                     {
                         scaleValue = 1.7f;
+
+                        trialCanvasText.text = $"[This is a trial run ({trialNumber}/9)] \n" +
+                                                "Press the button with the correct answer: \n" +
+                                               $"{midButtonTargetAnswerTrial[2][0]}";
+                        leftButtonTargetMathEquationText.text = midButtonTargetAnswerTrial[2][1];
+                        midButtonTargetMathEquationText.text = midButtonTargetAnswerTrial[2][2];
+                        rightButtonTargetMathEquationText.text = midButtonTargetAnswerTrial[2][3];
                     }
 
                     misc.text += "scaleValue: " + scaleValue + "\n";
@@ -243,14 +296,35 @@ public class GameManager2 : MonoBehaviour
                     if (rightButtonTrial == 0)
                     {
                         scaleValue = 0.75f;
+
+                        trialCanvasText.text = $"[This is a trial run ({trialNumber}/9)] \n" +
+                                                "Press the button with the correct answer: \n" +
+                                               $"{rightButtonTargetAnswerTrial[0][0]}";
+                        leftButtonTargetMathEquationText.text = rightButtonTargetAnswerTrial[0][1];
+                        midButtonTargetMathEquationText.text = rightButtonTargetAnswerTrial[0][2];
+                        rightButtonTargetMathEquationText.text = rightButtonTargetAnswerTrial[0][3];
                     }
                     else if (rightButtonTrial == 1)
                     {
                         scaleValue = 1f;
+
+                        trialCanvasText.text = $"[This is a trial run ({trialNumber}/9)] \n" +
+                                                "Press the button with the correct answer: \n" +
+                                               $"{rightButtonTargetAnswerTrial[1][0]}";
+                        leftButtonTargetMathEquationText.text = rightButtonTargetAnswerTrial[1][1];
+                        midButtonTargetMathEquationText.text = rightButtonTargetAnswerTrial[1][2];
+                        rightButtonTargetMathEquationText.text = rightButtonTargetAnswerTrial[1][3];
                     }
                     else if (rightButtonTrial == 2)
                     {
                         scaleValue = 1.7f;
+
+                        trialCanvasText.text = $"[This is a trial run ({trialNumber}/9)] \n" +
+                                                "Press the button with the correct answer: \n" +
+                                               $"{rightButtonTargetAnswerTrial[2][0]}";
+                        leftButtonTargetMathEquationText.text = rightButtonTargetAnswerTrial[2][1];
+                        midButtonTargetMathEquationText.text = rightButtonTargetAnswerTrial[2][2];
+                        rightButtonTargetMathEquationText.text = rightButtonTargetAnswerTrial[2][3];
                     }
 
                     misc.text += "scaleValue: " + scaleValue + "\n";
@@ -332,13 +406,7 @@ public class GameManager2 : MonoBehaviour
 
         handMovementScaler.ActivateScaling(rightHandAnchor.position, scaleValue); // Setting warp origin + activating scaling
 
-        if (trial == true)
-        {
-            trialCanvasText.text = $"[This is a trial run ({trialNumber}/9)] \n" +
-                                    "Press the button with your index finger.";
-        }
-        else
-            realCanvasText.text = "Press the button with your index finger.";
+        
     }
     public void StepTwoFalse()
     {
