@@ -80,7 +80,9 @@ public class GameManager2 : MonoBehaviour
         new string[] { "40x/8 + 4*4 = 31", "x=7", "x=5", "x=3" }
     };
 
-
+    public TextMeshProUGUI leftButtonTargetMathEquationText; // Assign this in the inspector
+    public TextMeshProUGUI midButtonTargetMathEquationText; // Assign this in the inspector
+    public TextMeshProUGUI rightButtonTargetMathEquationText; // Assign this in the inspector
 
 
     private float scaleValue = 1f;
@@ -328,11 +330,6 @@ public class GameManager2 : MonoBehaviour
             }
         }
 
-
-
-
-        buttons[buttonTarget].SetActive(true);
-
         handMovementScaler.ActivateScaling(rightHandAnchor.position, scaleValue); // Setting warp origin + activating scaling
 
         if (trial == true)
@@ -347,7 +344,7 @@ public class GameManager2 : MonoBehaviour
     {
         step2 = false;
         handMovementScaler.DeActivateScaling();
-        buttons[buttonTarget].SetActive(false);
+        
         if (trial == true)
         {
             gameObjectManager.DeactivateTrialCanvas();
