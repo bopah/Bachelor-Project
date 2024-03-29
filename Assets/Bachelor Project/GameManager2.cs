@@ -14,6 +14,75 @@ public class GameManager2 : MonoBehaviour
     private List<float> buttonMidList = new List<float> { 0.75f, 0.80f, 0.85f, 0.90f, 0.95f, 1.0f, 1.14f, 1.28f, 1.42f, 1.56f, 1.7f };
     private List<float> buttonRightList = new List<float> { 0.75f, 0.80f, 0.85f, 0.90f, 0.95f, 1.0f, 1.14f, 1.28f, 1.42f, 1.56f, 1.7f };
 
+    List<string[]> leftButtonTargetAnswerTrial = new List<string[]>
+    {
+        new string[] { "7x - 21 = 0", "x=3", "x=2", "x=4" },
+        new string[] { "8x + 5 = 37", "x=4", "x=5", "x=6" },
+        new string[] { "3x + 8*3 = 0", "x=8", "x=6", "x=9" }
+    };
+
+    List<string[]> midButtonTargetAnswerTrial = new List<string[]>
+    {
+        new string[] { "40% of 40", "x=20", "x=16", "x=12" },
+        new string[] { "4*7 + 8", "x=40", "x=36", "x=30" },
+        new string[] { "28/7 + 5", "x=11", "x=9", "x=5" }
+    };
+
+    List<string[]> rightButtonTargetAnswerTrial = new List<string[]>
+    {
+        new string[] { "12 - 4x = 8", "x=2", "x=4", "x=1" },
+        new string[] { "15% of 40", "x=8", "x=4", "x=6" },
+        new string[] { "3*3*3", "x=18", "x=36", "x=27" }
+    };
+
+    List<string[]> leftButtonTargetAnswerReal = new List<string[]>
+    {
+        new string[] { "15x = 15*3 - 15", "x=2", "x=3", "x=4" },
+        new string[] { "9x - 3 = 6x + 15", "x=6", "x=8", "x=7" },
+        new string[] { "42/6 + 8 - 3", "x=12", "x=15", "x=9" },
+        new string[] { "10x = 20 + 10*2", "x=4", "x=2", "x=8" },
+        new string[] { "4x + 7 = 19 + 8", "x=5", "x=6", "x=4" },
+        new string[] { "25% of 60", "x=15", "x=18", "x=12" },
+        new string[] { "12x + 4 = 4*12 + 16", "x=5", "x=6", "x=7" },
+        new string[] { "36/9 + 10*3", "x=34", "x=32", "x=38" },
+        new string[] { "3x + 9 = 15 + 6", "x=4", "x=6", "x=8" },
+        new string[] { "30% of 70", "x=21", "x=25", "x=18" },
+        new string[] { "5x + 8 = 3x + 20", "x=6", "x=4", "x=8" }
+    };
+
+    List<string[]> midButtonTargetAnswerReal = new List<string[]>
+    {
+        new string[] { "6x - 18 = 6", "x=6", "x=4", "x=5" },
+        new string[] { "7x + 4 = 32", "x=5", "x=4", "x=6" },
+        new string[] { "4x + 6*2 = 16", "x=0", "x=1", "x=2" },
+        new string[] { "20% of 55", "x=13", "x=11", "x=15" },
+        new string[] { "5*6 + 7", "x=42", "x=37", "x=35" },
+        new string[] { "35/7 + 6", "x=15", "x=11", "x=13" },
+        new string[] { "14 - 3x = 11", "x=3", "x=1", "x=2" },
+        new string[] { "15% of 80", "x=18", "x=12", "x=15" },
+        new string[] { "1*2*3*4", "x=18", "x=24", "x=36" },
+        new string[] { "14x = 14*2 - 14", "x=3", "x=1", "x=2" },
+        new string[] { "8x - 4 = 5x + 20", "x=7", "x=8", "x=9" }
+    };
+
+    List<string[]> rightButtonTargetAnswerReal = new List<string[]>
+    {
+        new string[] { "48/6 + 9 - 4", "x=15", "x=10", "x=13" },
+        new string[] { "12x = 24 + 12*3", "x=8", "x=6", "x=5" },
+        new string[] { "5x + 34 = 17x + 10", "x=1", "x=3", "x=2" },
+        new string[] { "60% of 70", "x=45", "x=40", "x=42" },
+        new string[] { "11x + 9 = 3*11 + 9", "x=2", "x=4", "x=3" },
+        new string[] { "42/7 + 12*2", "x=24", "x=36", "x=30" },
+        new string[] { "2x + 7 = 14 + 5", "x=7", "x=8", "x=6" },
+        new string[] { "35% of 60", "x=18", "x=24", "x=21" },
+        new string[] { "4x + 9 = 2x + 19", "x=14", "x=10", "x=5" },
+        new string[] { "1*3*5*2", "x=50", "x=35", "x=30" },
+        new string[] { "40x/8 + 4*4 = 31", "x=7", "x=5", "x=3" }
+    };
+
+
+
+
     private float scaleValue = 1f;
     private int randomScale = 0;
     private string targetButton = "targetMid";
