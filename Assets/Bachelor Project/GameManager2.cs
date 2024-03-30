@@ -18,7 +18,7 @@ public class GameManager2 : MonoBehaviour
     {
         new string[] { "7x - 21 = 0", "x=3", "x=2", "x=4" },
         new string[] { "8x + 5 = 37", "x=4", "x=5", "x=6" },
-        new string[] { "3x + 8*3 = 0", "x=8", "x=6", "x=9" }
+        new string[] { "3x + 8*3 = 0", "x=-8", "x=8", "x=9" }
     };
 
     List<string[]> midButtonTargetAnswerTrial = new List<string[]>
