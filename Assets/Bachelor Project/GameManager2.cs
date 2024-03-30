@@ -84,6 +84,7 @@ public class GameManager2 : MonoBehaviour
     public TextMeshProUGUI midButtonTargetMathEquationText; // Assign this in the inspector
     public TextMeshProUGUI rightButtonTargetMathEquationText; // Assign this in the inspector
 
+    private int randomMathEquation = 0;
     private float scaleValue = 1f;
     private int randomScale = 0;
     private string targetButton = "targetMid";
@@ -184,11 +185,12 @@ public class GameManager2 : MonoBehaviour
             realCanvasText.text = "Press the button with the correct answer.";
         */
 
-            // Finding which random button to activate.
-            // If the button target list has a count of 0, then the button has tried all scale values and we stop activating this button.
-            // But when its a trial, then each button must activate 3 times each before trial ends
-            buttonTarget = Random.Range(0, 3); // 3 is exclusive
+        // Finding which random button to activate.
+        // If the button target list has a count of 0, then the button has tried all scale values and we stop activating this button.
+        // But when its a trial, then each button must activate 3 times each before trial ends
+        buttonTarget = Random.Range(0, 3); // 3 is exclusive
         int buttonTargetListLength = 0;
+        string[] randomMathEquationValue;
 
         // Infinite loop until we hit a valid button target (list is not empty)
         while (true)
@@ -238,7 +240,7 @@ public class GameManager2 : MonoBehaviour
                     misc.text += "scaleValue: " + scaleValue + "\n";
 
 
-                    targetButton = "Trial-targetLeftButton";
+                    targetButton = "targetLeftButton";
                     misc.text += "targetButton name: " + targetButton + "\n";
                     leftButtonTrial++;
                     break;
@@ -284,7 +286,7 @@ public class GameManager2 : MonoBehaviour
                     misc.text += "scaleValue: " + scaleValue + "\n";
 
 
-                    targetButton = "Trial-targetMidButton";
+                    targetButton = "targetMidButton";
                     misc.text += "targetButton name: " + targetButton + "\n";
                     midButtonTrial++;
                     break;
@@ -330,7 +332,7 @@ public class GameManager2 : MonoBehaviour
                     misc.text += "scaleValue: " + scaleValue + "\n";
 
 
-                    targetButton = "Trial-targetRightButton";
+                    targetButton = "targetRightButton";
                     misc.text += "targetButton name: " + targetButton + "\n";
                     rightButtonTrial++;
                     break;
@@ -341,6 +343,7 @@ public class GameManager2 : MonoBehaviour
                     continue;
                 }
             }
+            // Not trial anymore
             else
             {
 
@@ -355,8 +358,19 @@ public class GameManager2 : MonoBehaviour
                     misc.text += "randomScale: " + randomScale + "\n";
                     scaleValue = buttonLeftList[randomScale];
                     misc.text += "scaleValue: " + scaleValue + "\n";
+
+                    randomMathEquation = Random.Range(0, buttonTargetListLength);
+                    randomMathEquationValue = leftButtonTargetAnswerReal[randomMathEquation];
+
+                    realCanvasText.text = "Press the button with the correct answer: \n" +
+                                         $"{randomMathEquationValue[0]}";
+                    leftButtonTargetMathEquationText.text = randomMathEquationValue[1];
+                    midButtonTargetMathEquationText.text = randomMathEquationValue[2];
+                    rightButtonTargetMathEquationText.text = randomMathEquationValue[3];
+
                     buttonLeftList.RemoveAt(randomScale); // Removing the scale value from the list.
-                    misc.text += "buttonLeftList count: " + buttonLeftList.Count + "\n";
+                    leftButtonTargetAnswerReal.RemoveAt(randomMathEquation);
+                    misc.text += "buttonLeftList count, leftButtonTargetAnswerReal count: " + buttonLeftList.Count + "," + leftButtonTargetAnswerReal.Count + "\n";
 
                     targetButton = "targetLeftButton";
                     misc.text += "targetButton name: " + targetButton + "\n";
@@ -372,7 +386,18 @@ public class GameManager2 : MonoBehaviour
                     misc.text += "randomScale: " + randomScale + "\n";
                     scaleValue = buttonMidList[randomScale];
                     misc.text += "scaleValue: " + scaleValue + "\n";
+
+                    randomMathEquation = Random.Range(0, buttonTargetListLength);
+                    randomMathEquationValue = midButtonTargetAnswerReal[randomMathEquation];
+
+                    realCanvasText.text = "Press the button with the correct answer: \n" +
+                                         $"{randomMathEquationValue[0]}";
+                    leftButtonTargetMathEquationText.text = randomMathEquationValue[1];
+                    midButtonTargetMathEquationText.text = randomMathEquationValue[2];
+                    rightButtonTargetMathEquationText.text = randomMathEquationValue[3];
+
                     buttonMidList.RemoveAt(randomScale); // Removing the scale value from the list.
+                    midButtonTargetAnswerReal.RemoveAt(randomMathEquation);
                     misc.text += "buttonMidList count: " + buttonMidList.Count + "\n";
 
                     targetButton = "targetMidButton";
@@ -389,7 +414,18 @@ public class GameManager2 : MonoBehaviour
                     misc.text += "randomScale: " + randomScale + "\n";
                     scaleValue = buttonRightList[randomScale];
                     misc.text += "scaleValue: " + scaleValue + "\n";
+
+                    randomMathEquation = Random.Range(0, buttonTargetListLength);
+                    randomMathEquationValue = rightButtonTargetAnswerReal[randomMathEquation];
+
+                    realCanvasText.text = "Press the button with the correct answer: \n" +
+                                         $"{randomMathEquationValue[0]}";
+                    leftButtonTargetMathEquationText.text = randomMathEquationValue[1];
+                    midButtonTargetMathEquationText.text = randomMathEquationValue[2];
+                    rightButtonTargetMathEquationText.text = randomMathEquationValue[3];
+
                     buttonRightList.RemoveAt(randomScale); // Removing the scale value from the list.
+                    rightButtonTargetAnswerReal.RemoveAt(randomMathEquation);
                     misc.text += "buttonRightList count: " + buttonRightList.Count + "\n";
 
                     targetButton = "targetRightButton";
@@ -403,16 +439,23 @@ public class GameManager2 : MonoBehaviour
                 }
             }
         }
-
+        // Showing the buttons
+        foreach (var button in buttons)
+        {
+            button.SetActive(true);
+        }
         handMovementScaler.ActivateScaling(rightHandAnchor.position, scaleValue); // Setting warp origin + activating scaling
-
-        
     }
     public void StepTwoFalse()
     {
         step2 = false;
         handMovementScaler.DeActivateScaling();
-        
+        // Not showing the buttons
+        foreach (var button in buttons)
+        {
+            button.SetActive(false);
+        }
+
         if (trial == true)
         {
             gameObjectManager.DeactivateTrialCanvas();
@@ -485,5 +528,18 @@ public class GameManager2 : MonoBehaviour
         step1 = false;
         realCanvasText.text = "The experiment is over. Thank you very much!";
         gameObjectManager.ActivateRealCanvas();
+    }
+
+    public bool RightWrongButton(string buttonTargetName)
+    {
+        misc.text += "targetButton and buttonTargetName: " + targetButton + "," + buttonTargetName + "," + (targetButton == buttonTargetName);
+        if (targetButton == buttonTargetName)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

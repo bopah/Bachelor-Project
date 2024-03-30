@@ -196,6 +196,7 @@ public class GameManager : MonoBehaviour
                     continue;
                 }
             }
+            // Not trial anymore
             else
             {
 
@@ -258,10 +259,7 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-        
-
-        
-        
+       
         buttons[buttonTarget].SetActive(true);
         
         handMovementScaler.ActivateScaling(rightHandAnchor.position, scaleValue); // Setting warp origin + activating scaling
@@ -307,9 +305,6 @@ public class GameManager : MonoBehaviour
         rightHandGameObject.SetActive(false);
         leftHandGameObject[0].SetActive(true);
         leftHandGameObject[1].SetActive(true);
-
-
-
     }
     public void StepThreeFalse()
     {
