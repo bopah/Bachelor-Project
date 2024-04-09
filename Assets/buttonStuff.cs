@@ -16,6 +16,7 @@ public class ButtonStuff : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        
         if (buttonPressed == false)
         {
             buttonPressAnimation.UpdateButtonAnimation(true);
@@ -24,6 +25,7 @@ public class ButtonStuff : MonoBehaviour
             StartCoroutine(DelayedAction());
             buttonPressed = true;
         }
+        
         
     }
 

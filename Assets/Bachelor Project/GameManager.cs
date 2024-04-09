@@ -10,10 +10,13 @@ public class GameManager : MonoBehaviour
     //private List<float> scales = new List<float> { 0.75f, 0.80f, 0.85f, 0.90f, 0.95f, 1.0f, 1.14f, 1.28f, 1.42f, 1.56f, 1.7f};
 
     public GameObject[] buttons; // Assign all buttons in inspector
-    private List<float> buttonLeftList = new List<float> { 0.75f, 0.80f, 0.85f, 0.90f, 0.95f, 1.0f, 1.14f, 1.28f, 1.42f, 1.56f, 1.7f };
-    private List<float> buttonMidList = new List<float> { 0.75f, 0.80f, 0.85f, 0.90f, 0.95f, 1.0f, 1.14f, 1.28f, 1.42f, 1.56f, 1.7f };
-    private List<float> buttonRightList = new List<float> { 0.75f, 0.80f, 0.85f, 0.90f, 0.95f, 1.0f, 1.14f, 1.28f, 1.42f, 1.56f, 1.7f };
-    
+    //private List<float> buttonLeftList = new List<float> { 0.75f, 0.80f, 0.85f, 0.90f, 0.95f, 1.0f, 1.14f, 1.28f, 1.42f, 1.56f, 1.7f };
+    //private List<float> buttonMidList = new List<float> { 0.75f, 0.80f, 0.85f, 0.90f, 0.95f, 1.0f, 1.14f, 1.28f, 1.42f, 1.56f, 1.7f };
+    //private List<float> buttonRightList = new List<float> { 0.75f, 0.80f, 0.85f, 0.90f, 0.95f, 1.0f, 1.14f, 1.28f, 1.42f, 1.56f, 1.7f };
+    private List<float> buttonLeftList = new List<float> { 0.75f, 0.80f, 0.85f, 0.90f, 0.95f, 1.0f, 1.05f, 1.10f, 1.15f, 1.20f, 1.25f };
+    private List<float> buttonMidList = new List<float> { 0.75f, 0.80f, 0.85f, 0.90f, 0.95f, 1.0f, 1.05f, 1.10f, 1.15f, 1.20f, 1.25f };
+    private List<float> buttonRightList = new List<float> { 0.75f, 0.80f, 0.85f, 0.90f, 0.95f, 1.0f, 1.05f, 1.10f, 1.15f, 1.20f, 1.25f };
+
     private float scaleValue = 1f;
     private int randomScale = 0;
     private string targetButton = "targetMid";
@@ -30,6 +33,7 @@ public class GameManager : MonoBehaviour
 
     private bool trial = true;
     private int trialNumber = 1;
+    private string trialScaleLevel = "the slowest scale.";
     private int leftButtonTrial = 0;
     private int midButtonTrial = 0;
     private int rightButtonTrial = 0;
@@ -79,7 +83,8 @@ public class GameManager : MonoBehaviour
         {
             gameObjectManager.ActivateTrialCanvas();
             trialCanvasText.text = $"[This is a trial run ({trialNumber}/9)] \n" +
-                                    "Hold your hand in the white/transparent box for 1 second.";
+                                    "Hold your hand in the white/transparent box.";
+                                    
             gameObjectManager.ActivateTransparentCube();
         }
         else
@@ -122,14 +127,17 @@ public class GameManager : MonoBehaviour
                     if (leftButtonTrial == 0)
                     {
                         scaleValue = 0.75f;
+                        trialScaleLevel = "the slowest scale.";
                     }
                     else if (leftButtonTrial == 1)
                     {
                         scaleValue = 1f;
+                        trialScaleLevel = "not scaled.";
                     }
                     else if (leftButtonTrial == 2)
                     {
-                        scaleValue = 1.7f;
+                        scaleValue = 1.25f;
+                        trialScaleLevel = "the fasted scale.";
                     }
                       
                     misc.text += "scaleValue: " + scaleValue + "\n";
@@ -147,14 +155,17 @@ public class GameManager : MonoBehaviour
                     if (midButtonTrial == 0)
                     {
                         scaleValue = 0.75f;
+                        trialScaleLevel = "the slowest scale.";
                     }
                     else if (midButtonTrial == 1)
                     {
                         scaleValue = 1f;
+                        trialScaleLevel = "not scaled.";
                     }
                     else if (midButtonTrial == 2)
                     {
-                        scaleValue = 1.7f;
+                        scaleValue = 1.25f;
+                        trialScaleLevel = "the fasted scale.";
                     }
 
                     misc.text += "scaleValue: " + scaleValue + "\n";
@@ -172,14 +183,17 @@ public class GameManager : MonoBehaviour
                     if (rightButtonTrial == 0)
                     {
                         scaleValue = 0.75f;
+                        trialScaleLevel = "the slowest scale.";
                     }
                     else if (rightButtonTrial == 1)
                     {
                         scaleValue = 1f;
+                        trialScaleLevel = "not scaled.";
                     }
                     else if (rightButtonTrial == 2)
                     {
-                        scaleValue = 1.7f;
+                        scaleValue = 1.25f;
+                        trialScaleLevel = "the fasted scale.";
                     }
 
                     misc.text += "scaleValue: " + scaleValue + "\n";
@@ -267,7 +281,8 @@ public class GameManager : MonoBehaviour
         if (trial == true)
         {
             trialCanvasText.text = $"[This is a trial run ({trialNumber}/9)] \n" +
-                                    "Press the button with your index finger.";
+                                    "Press the button with your index finger. \n" +
+                                    $"This is {trialScaleLevel}";
         }
         else
             realCanvasText.text = "Press the button with your index finger.";
@@ -295,7 +310,7 @@ public class GameManager : MonoBehaviour
         {
             gameObjectManager.ActivateTrialYesNo();
             trialYesNoText.text = $"[This is a trial run ({trialNumber}/9)] \n" +
-                                    "Did the movement of the virtual hand exactly correspond to your own movement?";
+                                    "Did the virtual hand move faster or slower than your real hand?";
 
         }
         else
