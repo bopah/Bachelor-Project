@@ -23,7 +23,7 @@ public class CSVWriter : MonoBehaviour
 
     public void WriteToCSV(string target, float scale, bool response)
     {
-        string responseText = response ? "Yes" : "No";
+        string responseText = response ? "Faster" : "Slower";
         string lineToWrite = $"{target},{scale:F2},{responseText}\n";
         File.AppendAllText(resultsFilePath, lineToWrite);
     }

@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
         else
         {
             gameObjectManager.ActivateRealCanvas();
-            realCanvasText.text = "Hold your hand in the white/transparent box for 1 second.";
+            realCanvasText.text = "Hold your hand in the white/transparent box.";
             gameObjectManager.ActivateTransparentCube();
         }
         rightHandGameObject.SetActive(true);

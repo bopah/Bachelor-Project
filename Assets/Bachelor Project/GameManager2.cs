@@ -10,9 +10,12 @@ public class GameManager2 : MonoBehaviour
     //private List<float> scales = new List<float> { 0.75f, 0.80f, 0.85f, 0.90f, 0.95f, 1.0f, 1.14f, 1.28f, 1.42f, 1.56f, 1.7f};
 
     public GameObject[] buttons; // Assign all buttons in inspector
-    private List<float> buttonLeftList = new List<float> { 0.75f, 0.80f, 0.85f, 0.90f, 0.95f, 1.0f, 1.14f, 1.28f, 1.42f, 1.56f, 1.7f };
-    private List<float> buttonMidList = new List<float> { 0.75f, 0.80f, 0.85f, 0.90f, 0.95f, 1.0f, 1.14f, 1.28f, 1.42f, 1.56f, 1.7f };
-    private List<float> buttonRightList = new List<float> { 0.75f, 0.80f, 0.85f, 0.90f, 0.95f, 1.0f, 1.14f, 1.28f, 1.42f, 1.56f, 1.7f };
+    //private List<float> buttonLeftList = new List<float> { 0.75f, 0.80f, 0.85f, 0.90f, 0.95f, 1.0f, 1.14f, 1.28f, 1.42f, 1.56f, 1.7f };
+    //private List<float> buttonMidList = new List<float> { 0.75f, 0.80f, 0.85f, 0.90f, 0.95f, 1.0f, 1.14f, 1.28f, 1.42f, 1.56f, 1.7f };
+    //private List<float> buttonRightList = new List<float> { 0.75f, 0.80f, 0.85f, 0.90f, 0.95f, 1.0f, 1.14f, 1.28f, 1.42f, 1.56f, 1.7f };
+    private List<float> buttonLeftList = new List<float> { 0.75f, 0.80f, 0.85f, 0.90f, 0.95f, 1.0f, 1.05f, 1.10f, 1.15f, 1.20f, 1.25f };
+    private List<float> buttonMidList = new List<float> { 0.75f, 0.80f, 0.85f, 0.90f, 0.95f, 1.0f, 1.05f, 1.10f, 1.15f, 1.20f, 1.25f };
+    private List<float> buttonRightList = new List<float> { 0.75f, 0.80f, 0.85f, 0.90f, 0.95f, 1.0f, 1.05f, 1.10f, 1.15f, 1.20f, 1.25f };
 
     List<string[]> leftButtonTargetAnswerTrial = new List<string[]>
     {
@@ -150,13 +153,13 @@ public class GameManager2 : MonoBehaviour
         {
             gameObjectManager.ActivateTrialCanvas();
             trialCanvasText.text = $"[This is a trial run ({trialNumber}/9)] \n" +
-                                    "Hold your hand in the white/transparent box for 1 second.";
+                                    "Hold your hand in the white/transparent box.";
             gameObjectManager.ActivateTransparentCube();
         }
         else
         {
             gameObjectManager.ActivateRealCanvas();
-            realCanvasText.text = "Hold your hand in the white/transparent box for 1 second.";
+            realCanvasText.text = "Hold your hand in the white/transparent box.";
             gameObjectManager.ActivateTransparentCube();
         }
         rightHandGameObject.SetActive(true);
@@ -474,7 +477,7 @@ public class GameManager2 : MonoBehaviour
         {
             gameObjectManager.ActivateTrialYesNo();
             trialYesNoText.text = $"[This is a trial run ({trialNumber}/9)] \n" +
-                                    "Did the movement of the virtual hand exactly correspond to your own movement?";
+                                    "Did the virtual hand move faster or slower than your real hand?";
 
         }
         else
