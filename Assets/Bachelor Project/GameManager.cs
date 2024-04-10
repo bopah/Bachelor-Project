@@ -122,7 +122,7 @@ public class GameManager : MonoBehaviour
                 if (buttonTarget == 0 && leftButtonTrial != 3)
                 {
 
-                    misc.text = "leftTrial.count, midTrial.count, rightTrial.count: " + leftButtonTrial + "," + midButtonTrial + "," + rightButtonTrial + "\n";
+                    //misc.text = "leftTrial.count, midTrial.count, rightTrial.count: " + leftButtonTrial + "," + midButtonTrial + "," + rightButtonTrial + "\n";
                     
                     if (leftButtonTrial == 0)
                     {
@@ -140,17 +140,17 @@ public class GameManager : MonoBehaviour
                         trialScaleLevel = "the fasted scale.";
                     }
                       
-                    misc.text += "scaleValue: " + scaleValue + "\n";
+                    //misc.text += "scaleValue: " + scaleValue + "\n";
                     
                     
                     targetButton = "Trial-targetLeftButton";
-                    misc.text += "targetButton name: " + targetButton + "\n";
+                    //misc.text += "targetButton name: " + targetButton + "\n";
                     leftButtonTrial++;
                     break;
                 }
                 else if (buttonTarget == 1 && midButtonTrial != 3)
                 {
-                    misc.text = "leftTrial.count, midTrial.count, rightTrial.count: " + leftButtonTrial + "," + midButtonTrial + "," + rightButtonTrial + "\n";
+                    //misc.text = "leftTrial.count, midTrial.count, rightTrial.count: " + leftButtonTrial + "," + midButtonTrial + "," + rightButtonTrial + "\n";
 
                     if (midButtonTrial == 0)
                     {
@@ -168,7 +168,7 @@ public class GameManager : MonoBehaviour
                         trialScaleLevel = "the fasted scale.";
                     }
 
-                    misc.text += "scaleValue: " + scaleValue + "\n";
+                    //misc.text += "scaleValue: " + scaleValue + "\n";
 
 
                     targetButton = "Trial-targetMidButton";
@@ -178,7 +178,7 @@ public class GameManager : MonoBehaviour
                 }
                 else if (buttonTarget == 2 && rightButtonTrial != 3)
                 {
-                    misc.text = "leftTrial.count, midTrial.count, rightTrial.count: " + leftButtonTrial + "," + midButtonTrial + "," + rightButtonTrial + "\n";
+                    //misc.text = "leftTrial.count, midTrial.count, rightTrial.count: " + leftButtonTrial + "," + midButtonTrial + "," + rightButtonTrial + "\n";
 
                     if (rightButtonTrial == 0)
                     {
@@ -196,11 +196,11 @@ public class GameManager : MonoBehaviour
                         trialScaleLevel = "the fasted scale.";
                     }
 
-                    misc.text += "scaleValue: " + scaleValue + "\n";
+                    //misc.text += "scaleValue: " + scaleValue + "\n";
 
 
                     targetButton = "Trial-targetRightButton";
-                    misc.text += "targetButton name: " + targetButton + "\n";
+                    //misc.text += "targetButton name: " + targetButton + "\n";
                     rightButtonTrial++;
                     break;
                 }
@@ -217,53 +217,53 @@ public class GameManager : MonoBehaviour
                 // If one of the lists is not empty, then loop break.
                 if (buttonTarget == 0 && buttonLeftList.Count != 0)
                 {
-                    misc.text = "left.count, mid.count, right.count: " + buttonLeftList.Count + "," + buttonMidList.Count + "," + buttonRightList.Count + "\n";
+                    //misc.text = "left.count, mid.count, right.count: " + buttonLeftList.Count + "," + buttonMidList.Count + "," + buttonRightList.Count + "\n";
                     buttonTargetListLength = buttonLeftList.Count; // Updating the length of the button target list
-                    misc.text += "buttonTargetListLength: " + buttonLeftList.Count + "\n";
+                    //misc.text += "buttonTargetListLength: " + buttonLeftList.Count + "\n";
                     // Finding an unused scale of target button list
                     randomScale = Random.Range(0, buttonTargetListLength);
-                    misc.text += "randomScale: " + randomScale + "\n";
+                    //misc.text += "randomScale: " + randomScale + "\n";
                     scaleValue = buttonLeftList[randomScale];
-                    misc.text += "scaleValue: " + scaleValue + "\n";
+                    //misc.text += "scaleValue: " + scaleValue + "\n";
                     buttonLeftList.RemoveAt(randomScale); // Removing the scale value from the list.
-                    misc.text += "buttonLeftList count: " + buttonLeftList.Count + "\n";
+                    //misc.text += "buttonLeftList count: " + buttonLeftList.Count + "\n";
 
                     targetButton = "targetLeftButton";
-                    misc.text += "targetButton name: " + targetButton + "\n";
+                    //misc.text += "targetButton name: " + targetButton + "\n";
                     break;
                 }
                 else if (buttonTarget == 1 && buttonMidList.Count != 0)
                 {
-                    misc.text = "left.count, mid.count, right.count: " + buttonLeftList.Count + "," + buttonMidList.Count + "," + buttonRightList.Count + "\n";
+                    //misc.text = "left.count, mid.count, right.count: " + buttonLeftList.Count + "," + buttonMidList.Count + "," + buttonRightList.Count + "\n";
                     buttonTargetListLength = buttonMidList.Count; // Updating the length of the button target list
-                    misc.text += "buttonTargetListLength: " + buttonMidList.Count + "\n";
+                    //misc.text += "buttonTargetListLength: " + buttonMidList.Count + "\n";
                     // Finding an unused scale of target button list
                     randomScale = Random.Range(0, buttonTargetListLength);
-                    misc.text += "randomScale: " + randomScale + "\n";
+                    //misc.text += "randomScale: " + randomScale + "\n";
                     scaleValue = buttonMidList[randomScale];
-                    misc.text += "scaleValue: " + scaleValue + "\n";
+                    //misc.text += "scaleValue: " + scaleValue + "\n";
                     buttonMidList.RemoveAt(randomScale); // Removing the scale value from the list.
-                    misc.text += "buttonMidList count: " + buttonMidList.Count + "\n";
+                    //misc.text += "buttonMidList count: " + buttonMidList.Count + "\n";
 
                     targetButton = "targetMidButton";
-                    misc.text += "targetButton name: " + targetButton + "\n";
+                    //misc.text += "targetButton name: " + targetButton + "\n";
                     break;
                 }
                 else if (buttonTarget == 2 && buttonRightList.Count != 0)
                 {
-                    misc.text = "left.count, mid.count, right.count: " + buttonLeftList.Count + "," + buttonMidList.Count + "," + buttonRightList.Count + "\n";
+                    //misc.text = "left.count, mid.count, right.count: " + buttonLeftList.Count + "," + buttonMidList.Count + "," + buttonRightList.Count + "\n";
                     buttonTargetListLength = buttonRightList.Count; // Updating the length of the button target list
-                    misc.text += "buttonTargetListLength: " + buttonRightList.Count + "\n";
+                    //misc.text += "buttonTargetListLength: " + buttonRightList.Count + "\n";
                     // Finding an unused scale of target button list
                     randomScale = Random.Range(0, buttonTargetListLength);
-                    misc.text += "randomScale: " + randomScale + "\n";
+                    //misc.text += "randomScale: " + randomScale + "\n";
                     scaleValue = buttonRightList[randomScale];
-                    misc.text += "scaleValue: " + scaleValue + "\n";
+                    //misc.text += "scaleValue: " + scaleValue + "\n";
                     buttonRightList.RemoveAt(randomScale); // Removing the scale value from the list.
-                    misc.text += "buttonRightList count: " + buttonRightList.Count + "\n";
+                    //misc.text += "buttonRightList count: " + buttonRightList.Count + "\n";
 
                     targetButton = "targetRightButton";
-                    misc.text += "targetButton name: " + targetButton + "\n";
+                    //misc.text += "targetButton name: " + targetButton + "\n";
                     break;
                 }
                 else
