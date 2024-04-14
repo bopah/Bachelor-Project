@@ -107,6 +107,7 @@ public class GameManager2 : MonoBehaviour
     private int leftButtonTrial = 0;
     private int midButtonTrial = 0;
     private int rightButtonTrial = 0;
+    private string trialScaleLevel = "the slowest scale.";
 
     public TextMeshProUGUI trialYesNoText; // Assign this in the inspector
 
@@ -209,10 +210,13 @@ public class GameManager2 : MonoBehaviour
                     if (leftButtonTrial == 0)
                     {
                         scaleValue = 0.75f;
-                        
+                        trialScaleLevel = "the slowest scale.";
+
+
                         trialCanvasText.text = $"[This is a trial run ({trialNumber}/9)] \n" +
                                                 "Press the button with the correct answer: \n" +
-                                               $"{leftButtonTargetAnswerTrial[0][0]}"; 
+                                               $"{leftButtonTargetAnswerTrial[0][0]} \n"+
+                                               $"This is {trialScaleLevel}"; 
                         leftButtonTargetMathEquationText.text = leftButtonTargetAnswerTrial[0][1];
                         midButtonTargetMathEquationText.text = leftButtonTargetAnswerTrial[0][2];
                         rightButtonTargetMathEquationText.text = leftButtonTargetAnswerTrial[0][3];
@@ -220,21 +224,25 @@ public class GameManager2 : MonoBehaviour
                     else if (leftButtonTrial == 1)
                     {
                         scaleValue = 1f;
+                        trialScaleLevel = "not scaled.";
 
                         trialCanvasText.text = $"[This is a trial run ({trialNumber}/9)] \n" +
                                                 "Press the button with the correct answer: \n" +
-                                               $"{leftButtonTargetAnswerTrial[1][0]}";
+                                               $"{leftButtonTargetAnswerTrial[1][0]} \n"+
+                                               $"This is {trialScaleLevel}";
                         leftButtonTargetMathEquationText.text = leftButtonTargetAnswerTrial[1][1];
                         midButtonTargetMathEquationText.text = leftButtonTargetAnswerTrial[1][2];
                         rightButtonTargetMathEquationText.text = leftButtonTargetAnswerTrial[1][3];
                     }
                     else if (leftButtonTrial == 2)
                     {
-                        scaleValue = 1.7f;
+                        scaleValue = 1.25f;
+                        trialScaleLevel = "the fasted scale.";
 
                         trialCanvasText.text = $"[This is a trial run ({trialNumber}/9)] \n" +
                                                 "Press the button with the correct answer: \n" +
-                                               $"{leftButtonTargetAnswerTrial[2][0]}";
+                                               $"{leftButtonTargetAnswerTrial[2][0]} \n"+
+                                               $"This is {trialScaleLevel}";
                         leftButtonTargetMathEquationText.text = leftButtonTargetAnswerTrial[2][1];
                         midButtonTargetMathEquationText.text = leftButtonTargetAnswerTrial[2][2];
                         rightButtonTargetMathEquationText.text = leftButtonTargetAnswerTrial[2][3];
@@ -255,10 +263,12 @@ public class GameManager2 : MonoBehaviour
                     if (midButtonTrial == 0)
                     {
                         scaleValue = 0.75f;
+                        trialScaleLevel = "the slowest scale.";
 
                         trialCanvasText.text = $"[This is a trial run ({trialNumber}/9)] \n" +
                                                 "Press the button with the correct answer: \n" +
-                                               $"{midButtonTargetAnswerTrial[0][0]}";
+                                               $"{midButtonTargetAnswerTrial[0][0]} \n"+
+                                               $"This is {trialScaleLevel}";
                         leftButtonTargetMathEquationText.text = midButtonTargetAnswerTrial[0][1];
                         midButtonTargetMathEquationText.text = midButtonTargetAnswerTrial[0][2];
                         rightButtonTargetMathEquationText.text = midButtonTargetAnswerTrial[0][3];
@@ -266,21 +276,25 @@ public class GameManager2 : MonoBehaviour
                     else if (midButtonTrial == 1)
                     {
                         scaleValue = 1f;
+                        trialScaleLevel = "not scaled.";
 
                         trialCanvasText.text = $"[This is a trial run ({trialNumber}/9)] \n" +
                                                 "Press the button with the correct answer: \n" +
-                                               $"{midButtonTargetAnswerTrial[1][0]}";
+                                               $"{midButtonTargetAnswerTrial[1][0]} \n"+
+                                               $"This is {trialScaleLevel}";
                         leftButtonTargetMathEquationText.text = midButtonTargetAnswerTrial[1][1];
                         midButtonTargetMathEquationText.text = midButtonTargetAnswerTrial[1][2];
                         rightButtonTargetMathEquationText.text = midButtonTargetAnswerTrial[1][3];
                     }
                     else if (midButtonTrial == 2)
                     {
-                        scaleValue = 1.7f;
+                        scaleValue = 1.25f;
+                        trialScaleLevel = "the fasted scale.";
 
                         trialCanvasText.text = $"[This is a trial run ({trialNumber}/9)] \n" +
                                                 "Press the button with the correct answer: \n" +
-                                               $"{midButtonTargetAnswerTrial[2][0]}";
+                                               $"{midButtonTargetAnswerTrial[2][0]} \n"+
+                                               $"This is {trialScaleLevel}";
                         leftButtonTargetMathEquationText.text = midButtonTargetAnswerTrial[2][1];
                         midButtonTargetMathEquationText.text = midButtonTargetAnswerTrial[2][2];
                         rightButtonTargetMathEquationText.text = midButtonTargetAnswerTrial[2][3];
@@ -301,10 +315,12 @@ public class GameManager2 : MonoBehaviour
                     if (rightButtonTrial == 0)
                     {
                         scaleValue = 0.75f;
+                        trialScaleLevel = "the slowest scale.";
 
                         trialCanvasText.text = $"[This is a trial run ({trialNumber}/9)] \n" +
                                                 "Press the button with the correct answer: \n" +
-                                               $"{rightButtonTargetAnswerTrial[0][0]}";
+                                               $"{rightButtonTargetAnswerTrial[0][0]} \n"+
+                                               $"This is {trialScaleLevel}";
                         leftButtonTargetMathEquationText.text = rightButtonTargetAnswerTrial[0][1];
                         midButtonTargetMathEquationText.text = rightButtonTargetAnswerTrial[0][2];
                         rightButtonTargetMathEquationText.text = rightButtonTargetAnswerTrial[0][3];
@@ -312,21 +328,25 @@ public class GameManager2 : MonoBehaviour
                     else if (rightButtonTrial == 1)
                     {
                         scaleValue = 1f;
+                        trialScaleLevel = "not scaled.";
 
                         trialCanvasText.text = $"[This is a trial run ({trialNumber}/9)] \n" +
                                                 "Press the button with the correct answer: \n" +
-                                               $"{rightButtonTargetAnswerTrial[1][0]}";
+                                               $"{rightButtonTargetAnswerTrial[1][0]} \n"+
+                                               $"This is {trialScaleLevel}";
                         leftButtonTargetMathEquationText.text = rightButtonTargetAnswerTrial[1][1];
                         midButtonTargetMathEquationText.text = rightButtonTargetAnswerTrial[1][2];
                         rightButtonTargetMathEquationText.text = rightButtonTargetAnswerTrial[1][3];
                     }
                     else if (rightButtonTrial == 2)
                     {
-                        scaleValue = 1.7f;
+                        scaleValue = 1.25f;
+                        trialScaleLevel = "the fasted scale.";
 
                         trialCanvasText.text = $"[This is a trial run ({trialNumber}/9)] \n" +
                                                 "Press the button with the correct answer: \n" +
-                                               $"{rightButtonTargetAnswerTrial[2][0]}";
+                                               $"{rightButtonTargetAnswerTrial[2][0]} \n" +
+                                               $"This is {trialScaleLevel}";
                         leftButtonTargetMathEquationText.text = rightButtonTargetAnswerTrial[2][1];
                         midButtonTargetMathEquationText.text = rightButtonTargetAnswerTrial[2][2];
                         rightButtonTargetMathEquationText.text = rightButtonTargetAnswerTrial[2][3];

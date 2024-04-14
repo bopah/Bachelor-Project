@@ -17,12 +17,14 @@ public class ButtonStuff : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        
-        buttonPressAnimation.UpdateButtonAnimation(true);
-        buttonLightAnimation._material.color = Color.green;
-        audioTrigger.PlayAudio();
-        StartCoroutine(DelayedAction());
-        buttonPressed = true;
+        if (buttonPressed == false) // Check if the button has already been pressed
+        {
+            buttonPressAnimation.UpdateButtonAnimation(true);
+            buttonLightAnimation._material.color = Color.green;
+            audioTrigger.PlayAudio();
+            StartCoroutine(DelayedAction());
+            buttonPressed = true;
+        }
         
     }
 
