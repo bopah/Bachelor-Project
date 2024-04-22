@@ -251,7 +251,7 @@ public class GameManager2 : MonoBehaviour
                     misc.text += "scaleValue: " + scaleValue + "\n";
 
 
-                    targetButton = "targetLeftButton";
+                    targetButton = "Trial-targetLeftButton";
                     misc.text += "targetButton name: " + targetButton + "\n";
                     leftButtonTrial++;
                     break;
@@ -303,7 +303,7 @@ public class GameManager2 : MonoBehaviour
                     misc.text += "scaleValue: " + scaleValue + "\n";
 
 
-                    targetButton = "targetMidButton";
+                    targetButton = "Trial-targetMidButton";
                     misc.text += "targetButton name: " + targetButton + "\n";
                     midButtonTrial++;
                     break;
@@ -355,7 +355,7 @@ public class GameManager2 : MonoBehaviour
                     misc.text += "scaleValue: " + scaleValue + "\n";
 
 
-                    targetButton = "targetRightButton";
+                    targetButton = "Trial-targetRightButton";
                     misc.text += "targetButton name: " + targetButton + "\n";
                     rightButtonTrial++;
                     break;
